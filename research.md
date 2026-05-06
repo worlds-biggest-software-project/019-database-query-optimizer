@@ -86,14 +86,51 @@ The database performance monitoring market was valued at approximately **USD 3.5
 
 ---
 
+## Recent Market Research (May 2026)
+
+### Market Size & Growth
+- **Database Performance Optimization Platform**: USD 4.75B (2024) with 13.2% CAGR
+- **SQL Performance Tuning Tools**: USD 1.42B (2024) → growth at 9.7% CAGR through 2033
+- **Database Performance Monitoring**: USD 3.55B (2024) → USD 8.98B (2032) at 12.3% CAGR
+- **Database Monitoring Software**: USD 2.35B (2024) → USD 6.91B (2032) at 14.4% CAGR
+- **Regional Distribution**: North America dominant; Asia-Pacific emerging as high-growth market
+
+### Recent AI Breakthroughs (2024-2025)
+- **IBM Db2 ML-Based Optimization**: Delivering up to 10× performance improvements over traditional methods
+- **Academic Research Consensus**: Reinforcement learning and graph-based approaches outperforming traditional optimizers on cardinality estimation and join-order selection
+- **Emerging Research Focus**: Text-to-SQL models, learned cost models, adaptive query processing vs. learned optimizers
+- **Commercial Validation**: Datadog and AWS now offering ML-powered query analysis integrations
+
+### Key Research Papers (2024-2025)
+- **Still Asking: How Good Are Query Optimizers, Really?** (VLDB 2025) - Leis et al. - benchmark showing traditional optimizers remain fragile
+- **Learned Cost Models for Query Optimization** (VLDB 2025) - Li et al. - streaming systems integration
+- **Cardinality Estimation in DBMS** (Zhu et al., VLDB 2024) - comprehensive benchmark evaluation
+- **Efficient AI-Driven Query Optimization**: Reinforcement learning and graph-based approaches (MDPI Mathematics, 2025)
+- **Learning database optimization techniques**: State-of-the-art and prospects (Springer Frontiers of Computer Science, 2025)
+
+### Industry Trends
+- **Cloud database sprawl**: Growth drivers are exponential data volumes, complex enterprise IT environments, cloud adoption, big data proliferation
+- **Cost optimization focus**: Slow queries directly inflate cloud compute/storage bills; FinOps teams prioritizing this
+- **Adaptive/Learned Optimization**: Shift from static cost models to continuous learning from actual execution patterns
+
 ## AI-Native Opportunity
 
-- **Cardinality estimation is still fundamentally broken in production systems.** Traditional cost-based optimizers rely on table statistics that go stale within minutes on high-write workloads. A learned cardinality estimator trained continuously on real execution feedback can produce dramatically more accurate row estimates without manual ANALYZE runs — something no current open-source tool does end-to-end.
+- **Cardinality estimation is still fundamentally broken in production systems.** Traditional cost-based optimizers rely on table statistics that go stale within minutes on high-write workloads. A learned cardinality estimator trained continuously on real execution feedback can produce dramatically more accurate row estimates without manual ANALYZE runs — something no current open-source tool does end-to-end. Recent VLDB 2024-2025 research validates ML approaches outperform traditional statistics significantly.
 
-- **Existing tools diagnose but do not fix.** pgBadger, pg_stat_statements, pev2, and even commercial tools surface the slow query and suggest a likely index — but the DBA must still write the CREATE INDEX statement, validate it against query plans, test for regressions, and deploy. An AI-native tool can close the loop: generate the index DDL, explain why, predict the plan change, estimate cost reduction, and open a PR or migration file.
+- **Existing tools diagnose but do not fix.** pgBadger, pg_stat_statements, pev2, and even commercial tools surface the slow query and suggest a likely index — but the DBA must still write the CREATE INDEX statement, validate it against query plans, test for regressions, and deploy. An AI-native tool can close the loop: generate the index DDL, explain why, predict the plan change, estimate cost reduction, and open a PR or migration file. IBM's 10× improvements prove the commercial impact.
 
 - **Multi-query workload reasoning is absent from open-source tooling.** Existing tools optimize queries in isolation. An AI-native optimizer can reason across the full workload: "Index X helps query A but causes a 15% write regression for queries B and C — recommend a partial index instead." This requires embedding-based query similarity and causal analysis, which LLMs with structured query context can approximate.
 
 - **Natural-language query rewriting is underserved for non-expert users.** Developers who are not SQL experts write inefficient queries (unnecessary subqueries, missing JOIN conditions, Cartesian products). An AI assistant that can explain in plain English why a query is slow and rewrite it with justification — rather than just showing an EXPLAIN plan — would democratize query tuning beyond the DBA persona.
 
 - **No open-source tool covers data warehouses + OLTP together.** EverSQL/Aiven targets MySQL/PostgreSQL. Commercial tools are either OLTP-only or warehouse-only. An open-source AI optimizer with adapters for PostgreSQL, MySQL, Snowflake, BigQuery, and DuckDB — unified under a common explain-plan schema — would fill a clear whitespace especially for platform teams running polyglot data stacks.
+
+- **Reinforcement learning for adaptive optimization**: Recent research shows RL-based query optimizers can adapt dynamically to changing data patterns and workload characteristics, outperforming static learned models. Production systems have not yet adopted this approach at scale.
+
+### New References (2025-2026)
+- [How AI is Transforming SQL Query Optimization 2025 - AI2sql](https://ai2sql.io/how-ai-is-transforming-sql-query-optimization-2025)
+- [VLDB 2025 - Still Asking: How Good Are Query Optimizers, Really?](http://www.vldb.org/pvldb/vol18/p5531-viktor.pdf)
+- [MDPI Mathematics 2025 - Efficient AI-Driven Query Optimization](https://www.mdpi.com/2227-7390/13/11/1700)
+- [Springer 2025 - Learning database optimization techniques: state-of-the-art and prospects](https://link.springer.com/article/10.1007/s11704-025-41116-7)
+- [arXiv - Query Optimization in the Wild: Realities and Trends](https://arxiv.org/pdf/2510.20082)
+- [Database Performance Optimization Platform Market](https://dataintelo.com/report/database-performance-optimization-platform-market)
